@@ -1,40 +1,11 @@
 #include <iostream>
-#include<stdio.h>
-#include<stdlib.h>
+
 using namespace std;
 struct node
 { int data;
 struct node * next;
 };
-struct node * head=NULL;
-void insert(int x);
-void traverse();
-void ldelete();
-
-int main()
-{   int n;
-    while(1)
-{
-    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n";
-    cin>>n;   
-    switch(n)
-    {   int x;
-        case 1: cout<<"\nEnter the element\n";
-                       cin>>x;
-                       insert(x);
-                       break;
-        case 2: traverse(); 
-                break;
-        case 3: ldelete();
-                break;
-        case 4:exit(0);
-               break;
-        default:cout<<"wrong option";       
-    }
-    
-}
-return 0;
-}
+struct node * head;
 void insert(int x )
 {   struct node*temp=(struct node*)malloc(sizeof(struct node));
     
@@ -50,10 +21,6 @@ void insert(int x )
         temp->next=head;
         head=temp;
              
-    
- 
-
-    
 }
     
 void traverse()
@@ -88,3 +55,42 @@ void ldelete()
         head=t;
     }
 }
+void llenght()
+{
+    struct node* temp=head;
+    int count=0;
+    while(temp!=NULL)
+    {
+        count++;
+        temp=temp->next;
+    }
+    cout<<count;
+}
+
+int main()
+{   int n;
+    while(1)
+{
+    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n4.lenght";
+    cin>>n;   
+    switch(n)
+    {   int x;
+        case 1: cout<<"\nEnter the element\n";
+                       cin>>x;
+                       insert(x);
+                       break;
+        case 2: traverse(); 
+                break;
+        case 3: ldelete();
+                break;
+        case 4: llenght();
+                break;        
+        case 5:exit(0);
+               break;
+        default:cout<<"wrong option";       
+    }
+    
+}
+return 0;
+}
+
