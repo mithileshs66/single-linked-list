@@ -6,6 +6,25 @@ struct node
 struct node * next;
 };
 struct node * head;
+
+void reverse()
+{
+    struct node* current=head;
+    struct node* temp=head;
+    struct node* prev=NULL;
+    struct node* next;
+    while(current!=NULL)
+    {
+        next=current->next;
+        current->next=prev;
+        prev=current;
+        current=next;
+    }
+    head=prev;
+    
+         
+}
+
 void insert(int x )
 {   struct node*temp=(struct node*)malloc(sizeof(struct node));
     
@@ -71,7 +90,7 @@ int main()
 {   int n;
     while(1)
 {
-    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n4.lenght";
+    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n4.lenght\n5.reverse\n";
     cin>>n;   
     switch(n)
     {   int x;
@@ -84,8 +103,10 @@ int main()
         case 3: ldelete();
                 break;
         case 4: llenght();
-                break;        
-        case 5:exit(0);
+                break;   
+        case 5:reverse();
+               break;
+        case 6:exit(0);
                break;
         default:cout<<"wrong option";       
     }
@@ -93,4 +114,3 @@ int main()
 }
 return 0;
 }
-
