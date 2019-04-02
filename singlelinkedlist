@@ -7,6 +7,26 @@ struct node * next;
 };
 struct node * head;
 
+void   insertatany(int x)
+{  int n;
+   cout<<"Enter the position\n";
+   cin>>n;
+   
+    struct node * q=head;
+    struct node *p=(struct node* )malloc(sizeof(struct node));
+  
+    p->data=x;
+    p->next=NULL;
+for(int i=1;i<n;i++) 
+{
+    q=q->next;
+    
+}
+    p->next=q->next;
+    q->next=p;
+
+}
+
 void reverse()
 {
     struct node* current=head;
@@ -90,7 +110,7 @@ int main()
 {   int n;
     while(1)
 {
-    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n4.lenght\n5.reverse\n";
+    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n4.lenght\n5.reverse\n6.insertatany\n";
     cin>>n;   
     switch(n)
     {   int x;
@@ -106,7 +126,11 @@ int main()
                 break;   
         case 5:reverse();
                break;
-        case 6:exit(0);
+        case 6:  cout<<"\nEnter the element\n";
+                       cin>>x;
+                       insertatany(x);
+                       break;     
+        case 7:exit(0);
                break;
         default:cout<<"wrong option";       
     }
