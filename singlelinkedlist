@@ -7,6 +7,29 @@ struct node * next;
 };
 struct node * head;
 
+void deleteatany()
+{
+    struct node * t=head;
+    struct node * t1;
+    cout<<"Enter the position\n";
+    int n;
+    cin>>n;
+    if(n==0)
+    {
+        head=head->next;
+    }
+    else
+    {
+    for(int i=1;i<n;i++)
+    {
+        t=t->next;
+    }
+    t1=t->next;
+    t1=t1->next;
+    t->next=t1;
+    }
+}
+
 void   insertatany(int x)
 {  int n;
    cout<<"Enter the position\n";
@@ -110,7 +133,7 @@ int main()
 {   int n;
     while(1)
 {
-    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n4.lenght\n5.reverse\n6.insertatany\n";
+    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n4.lenght\n5.reverse\n6.insertatany\n7.deleteatany\n";
     cin>>n;   
     switch(n)
     {   int x;
@@ -129,8 +152,11 @@ int main()
         case 6:  cout<<"\nEnter the element\n";
                        cin>>x;
                        insertatany(x);
-                       break;     
-        case 7:exit(0);
+                       break; 
+        case 7:deleteatany();
+              break;
+                       
+        case 8:exit(0);
                break;
         default:cout<<"wrong option";       
     }
