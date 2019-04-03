@@ -7,6 +7,38 @@ struct node * next;
 };
 struct node * head;
 
+void findelement()
+{  int n;
+  struct node * temp=head;
+  int i=1;
+    cout<<"Enter the element to be searched";
+    cin>>n;
+  if(head==NULL)
+  {
+      cout<<"EMPTY LIST";
+      
+  }
+  else
+  {
+      while(temp!=NULL)
+      {  
+          int d=temp->data;
+          if(d==n)
+        {   
+            cout<<temp->data<<" at position "<<i;
+            
+           break;
+        
+        }
+        
+        
+           temp=temp->next;
+            i++; 
+    }
+  }
+    
+}
+
 void deleteatany()
 {
     struct node * t=head;
@@ -133,7 +165,7 @@ int main()
 {   int n;
     while(1)
 {
-    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n4.lenght\n5.reverse\n6.insertatany\n7.deleteatany\n";
+    cout<<"\nEnter the value\n1.insert\n2.traverse\n3.delete\n4.lenght\n5.reverse\n6.insertatany\n7.deleteatany\n8.findelement\n";
     cin>>n;   
     switch(n)
     {   int x;
@@ -155,8 +187,10 @@ int main()
                        break; 
         case 7:deleteatany();
               break;
-                       
-        case 8:exit(0);
+         case 8:findelement();
+              break;
+                                      
+        case 9:exit(0);
                break;
         default:cout<<"wrong option";       
     }
